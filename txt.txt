@@ -1,0 +1,9 @@
+water_products_app/
+├── app.py
+├── models.py
+├── config.py
+├── templates/
+│   ├── index.html
+│   └── review.html
+└── static/
+    └── styles.css
