@@ -26,3 +26,4 @@ CREATE USER keviny WITH PASSWORD 'rebecca';
 CREATE DATABASE water_product_review;
 GRANT ALL PRIVILEGES ON DATABASE water_product_review TO keviny;
 
+psql -U keviny -d water_product_review -h localhost

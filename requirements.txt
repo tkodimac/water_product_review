@@ -1,6 +1,7 @@
 blinker==1.8.2
 Bootstrap-Flask==1.6.0
 click==8.1.7
+email_validator
 Flask==2.2.5
 Flask-SQLAlchemy==2.5.1
 Flask-Login==0.6.2
