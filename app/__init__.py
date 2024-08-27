@@ -15,19 +15,16 @@ def create_app():
     app = Flask(__name__)
     app.config["SECRET_KEY"] = os.environ.get("SECRET_KEY")
 
-    if os.environ.get("DEVELOPMENT") == "True":
-        app.config["SQLALCHEMY_DATABASE_URI"] = os.environ.get("DB_URL")  # local
-    else:
-        uri = os.environ.get("DATABASE_URL")
-        if uri.startswith("postgres://"):
-            uri = uri.replace("postgres://", "postgresql://", 1)
-        app.config["SQLALCHEMY_DATABASE_URI"] = uri  # heroku
-
+    uri = os.environ.get("DATABASE_URL")
+    if uri is None:
+        raise ValueError("DATABASE_URL is not set in environment variables.")
     
-
-
+    if uri.startswith("postgres://"):
+        uri = uri.replace("postgres://", "postgresql://", 1)
+    
+    app.config["SQLALCHEMY_DATABASE_URI"] = uri
     app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
-    
+
     db.init_app(app)
     bcrypt.init_app(app)
     login_manager.init_app(app)
