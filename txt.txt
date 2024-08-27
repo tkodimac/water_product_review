@@ -19,3 +19,10 @@ water_product_review/
 ├── run.py
 ├── .gitignore
 └── README.md
+
+sudo -u postgres psql
+
+CREATE USER keviny WITH PASSWORD 'rebecca';
+CREATE DATABASE water_product_review;
+GRANT ALL PRIVILEGES ON DATABASE water_product_review TO keviny;
+
