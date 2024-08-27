@@ -5,7 +5,7 @@ os.environ.setdefault("PORT", "5000")
 os.environ.setdefault("SECRET_KEY", "62c_windmill_street")
 os.environ.setdefault("DEBUG", "True")
 os.environ.setdefault("DEVELOPMENT", "False")
-os.environ.setdefault("DATABASE_URL", "postgresql:///taskmanager")
+os.environ.setdefault("DATABASE_URL", "postgresql:///app")
 
 
 class Config:
