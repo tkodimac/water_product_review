@@ -6,20 +6,21 @@ from flask_login import login_user, current_user, logout_user, login_required
 
 main = Blueprint('main', __name__)
 
+
 @main.route("/")
 @main.route("/home")
 def home():
+    """Render the home page with all reviews."""
     reviews = WaterProductReview.query.all()
     return render_template('index.html', reviews=reviews)
 
+
 @main.route("/register", methods=['GET', 'POST'])
 def register():
-    """
-    User register their details inorder to login so that
-    it brongs great user experience
-    """
+    """Register a new user."""
     if current_user.is_authenticated:
         return redirect(url_for('main.home'))
+
     form = RegistrationForm()
     if form.validate_on_submit():
         hashed_password = bcrypt.generate_password_hash(
@@ -32,47 +33,66 @@ def register():
         )
         db.session.add(user)
         db.session.commit()
-        flash(
-            'Your account has been created! You are now able to log in',
-            'success'
-        )
+        flash('Your account has been created! You can log in', 'success')
         return redirect(url_for('main.login'))
+
     return render_template('register.html', title='Register', form=form)
 
 
 @main.route("/login", methods=['GET', 'POST'])
 def login():
+    """Log in an existing user."""
     if current_user.is_authenticated:
         return redirect(url_for('main.home'))
+
     form = LoginForm()
     if form.validate_on_submit():
         user = User.query.filter_by(email=form.email.data).first()
-        if user and bcrypt.check_password_hash(user.password_hash, form.password.data):
+        if user and bcrypt.check_password_hash(
+           user.password_hash, form.password.data):
             login_user(user)
             return redirect(url_for('main.home'))
         else:
-            flash('Login Unsuccessful. Please check email and password', 'danger')
+            flash('Login Unsuccessful.Check email and password', 'danger')
+
     return render_template('login.html', title='Login', form=form)
+
 
 @main.route("/logout")
 def logout():
+    """Log out the current user."""
     logout_user()
     return redirect(url_for('main.home'))
+
 
 @main.route("/submit_review", methods=['GET', 'POST'])
 @login_required
 def submit_review():
+    """Submit a product review."""
     form = ReviewForm()
     if form.validate_on_submit():
-        review = WaterProductReview(product_name=form.product_name.data, description=form.description.data, ml=form.ml.data, review=form.review.data, author=current_user)
+        review = WaterProductReview(
+            product_name=form.product_name.data,
+            description=form.description.data,
+            ml=form.ml.data,
+            review=form.review.data,
+            author=current_user
+        )
         db.session.add(review)
         db.session.commit()
         flash('Your review has been submitted!', 'success')
         return redirect(url_for('main.home'))
-    return render_template('submit_review.html', title='Submit Review', form=form)
+
+    return render_template(
+        'submit_review.html',
+        title='Submit Review', form=form)
+
 
 @main.route("/reviews")
 @login_required
 def reviews():
+    """Display the current user's reviews."""
     reviews = WaterProductReview.query.filter_by(author=current_user).all()
-    return render_template('reviews.html', title='Your Reviews', reviews=reviews)
+    return render_template(
+        'reviews.html', title='Your Reviews', reviews=reviews
+    )
