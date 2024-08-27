@@ -1,0 +1,27 @@
+{% extends "layout.html" %}
+
+{% block title %}Submit Review{% endblock %}
+
+{% block content %}
+    <h1>Submit a Water Product Review</h1>
+    <form method="POST">
+        {{ form.hidden_tag() }}
+        <p>
+            {{ form.product_name.label }}<br>
+            {{ form.product_name(size=64) }}
+        </p>
+        <p>
+            {{ form.description.label }}<br>
+            {{ form.description(cols=40, rows=5) }}
+        </p>
+        <p>
+            {{ form.ml.label }}<br>
+            {{ form.ml(size=64) }}
+        </p>
+        <p>
+            {{ form.review.label }}<br>
+            {{ form.review(cols=40, rows=5) }}
+        </p>
+        <p>{{ form.submit() }}</p>
+    </form>
+{% endblock %}
