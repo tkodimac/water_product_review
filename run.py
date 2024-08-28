@@ -1,9 +1,9 @@
 import os
 from app import create_app, db
-from app import app  # Make sure this imports your Flask app correctly
+#from app import app  # Make sure this imports your Flask app correctly
 
 
-#app = create_app()
+app = create_app()
 
 #with app.app_context():
 #    db.create_all()  # This creates the tables if they do not exist
