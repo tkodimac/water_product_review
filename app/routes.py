@@ -1,7 +1,11 @@
-from flask import render_template, url_for, flash, redirect, Blueprint
+from flask import (
+    render_template, url_for, flash, redirect, Blueprint, request, abort
+    )
 from app.forms import RegistrationForm, LoginForm, ReviewForm
 from app.models import User, WaterProductReview
 from flask_login import login_user, current_user, logout_user, login_required
+from app import bcrypt  # Import the initialized bcrypt instance
+from app import db
 
 main = Blueprint('main', __name__)
 

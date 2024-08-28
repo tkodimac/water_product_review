@@ -22,8 +22,8 @@ water_product_review/
 
 sudo -u postgres psql
 
-CREATE USER keviny WITH PASSWORD 'rebecca';
-CREATE DATABASE water_product_review;
-GRANT ALL PRIVILEGES ON DATABASE water_product_review TO keviny;
+CREATE USER machi WITH PASSWORD 'rebecca';
+CREATE DATABASE water_product_reviews;
+GRANT ALL PRIVILEGES ON DATABASE water_product_reviews TO machi;
 
-psql -U keviny -d water_product_review -h localhost
+psql -U machi -d water_product_reviews -h localhost
