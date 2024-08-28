@@ -24,6 +24,6 @@ sudo -u postgres psql
 
 CREATE USER machi WITH PASSWORD 'rebecca';
 CREATE DATABASE water_product_reviews;
-GRANT ALL PRIVILEGES ON DATABASE water_product_reviews TO machi;
+GRANT ALL PRIVILEGES ON DATABASE water_product_review TO machi;
 
 psql -U machi -d water_product_reviews -h localhost
