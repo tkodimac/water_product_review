@@ -2,7 +2,7 @@
 
 ![MOCKUP](documentation/features/mockup.png)
 
-[View the live site here.](#)
+[View the live site here.](https://water-master-769e91fb66d4.herokuapp.com/)
 
 Water Product Review is a comprehensive web platform where users can discover, review, and discuss various water-related products. The site allows users to explore a wide range of products, from water purifiers and filters to bottled water brands and eco-friendly water containers. Users can also share their experiences, rate products, and contribute to a community-driven resource for making informed water product choices.
 
@@ -16,7 +16,7 @@ The **About** page, accessible from the main navigation, provides detailed infor
 
 A 'Product Catalog' page allows users to browse all available products, filtered by categories such as purifiers, filters, bottled water, and containers. Logged-in users can add new products, write reviews, and rate products. This page also offers advanced search and sorting options, enabling users to find products that meet specific criteria.
 
-Users who are not logged in can still browse the site, but they are prompted to register or log in when they try to submit a review or rate a product. Upon logging in, users are directed to their personal dashboard, where they can manage their reviews, update account settings, and view a list of their favorite products.
+Users who are not logged in can still browse the site, but they are prompted to register or log in when they try to submit a review or rate a product. Upon logging in, users are directed to their personal dashboard, where they can manage their reviews, update reviews, and view a list of their favorite product reviews.
 
 ### Colour Scheme
 
