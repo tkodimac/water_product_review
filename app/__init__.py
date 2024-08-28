@@ -33,9 +33,9 @@ def create_app():
 
     # Retrieve the database URI from the environment variables
     if os.environ.get("DEVELOPMENT") == "True":
-        app.config["SQLALCHEMY_DATABASE_URI"] = os.environ.get("DB_URL")  # Local database URL
+        app.config["SQLALCHEMY_DATABASE_URI"] = os.environ.get("DATABASE_URL")  # Local database URL
         if app.config["SQLALCHEMY_DATABASE_URI"] is None:
-            raise ValueError("DB_URL is not set in environment variables.")
+            raise ValueError("DATSBASE_URL is not set in environment variables.")
     else:
         uri = os.environ.get("DATABASE_URL")
         if uri is None:
