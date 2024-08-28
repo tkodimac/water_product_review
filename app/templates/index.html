@@ -3,16 +3,20 @@
 {% block title %}Home{% endblock %}
 
 {% block content %}
-    <h1>Water Product Reviews</h1>
-    <ul>
+    <h1 class="mb-4">Water Product Reviews</h1>
+    <div class="row">
         {% for review in reviews %}
-        <li>
-            <h2>{{ review.product_name }}</h2>
-            <p>{{ review.description }}</p>
-            <p>{{ review.ml }} ml</p>
-            <p>{{ review.review }}</p>
-            <p>Reviewed by: {{ review.author.username }}</p>
-        </li>
+        <div class="col-md-4 mb-4">
+            <div class="card h-100">
+                <div class="card-body">
+                    <h5 class="card-title">{{ review.product_name }}</h5>
+                    <h6 class="card-subtitle mb-2 text-muted">{{ review.ml }} ml</h6>
+                    <p class="card-text">{{ review.description }}</p>
+                    <p class="card-text">{{ review.review }}</p>
+                    <p class="card-footer text-muted">Reviewed by: {{ review.author.username }}</p>
+                </div>
+            </div>
+        </div>
         {% endfor %}
-    </ul>
+    </div>
 {% endblock %}

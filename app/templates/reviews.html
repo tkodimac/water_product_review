@@ -3,15 +3,23 @@
 {% block title %}Your Reviews{% endblock %}
 
 {% block content %}
-    <h1>Your Reviews</h1>
-    <ul>
+    <h1 class="mb-4">Your Water Product Reviews</h1>
+    <div class="row">
         {% for review in reviews %}
-        <li>
-            <h2>{{ review.product_name }}</h2>
-            <p>{{ review.description }}</p>
-            <p>{{ review.ml }} ml</p>
-            <p>{{ review.review }}</p>
-        </li>
+        <div class="col-md-4 mb-4">
+            <div class="card h-100">
+                <div class="card-body">
+                    <h5 class="card-title">{{ review.product_name }}</h5>
+                    <h6 class="card-subtitle mb-2 text-muted">{{ review.ml }} ml</h6>
+                    <p class="card-text">{{ review.description }}</p>
+                    <p class="card-text">{{ review.review }}</p>
+                    <a href="{{ url_for('main.edit_review', review_id=review.id) }}" class="btn btn-warning">Edit</a>
+                    <form action="{{ url_for('main.delete_review', review_id=review.id) }}" method="POST" class="d-inline">
+                        <button type="submit" class="btn btn-danger">Delete</button>
+                    </form>
+                </div>
+            </div>
+        </div>
         {% endfor %}
-    </ul>
+    </div>
 {% endblock %}

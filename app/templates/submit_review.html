@@ -1,27 +1,39 @@
 {% extends "layout.html" %}
 
-{% block title %}Submit Review{% endblock %}
+{% block title %}
+    {% if review %}
+        Edit Review
+    {% else %}
+        Submit Review
+    {% endif %}
+{% endblock %}
 
 {% block content %}
-    <h1>Submit a Water Product Review</h1>
-    <form method="POST">
+    <h1 class="mb-4">
+        {% if review %}
+            Edit Your Water Product Review
+        {% else %}
+            Submit a Water Product Review
+        {% endif %}
+    </h1>
+    <form method="POST" class="mb-3">
         {{ form.hidden_tag() }}
-        <p>
-            {{ form.product_name.label }}<br>
-            {{ form.product_name(size=64) }}
-        </p>
-        <p>
-            {{ form.description.label }}<br>
-            {{ form.description(cols=40, rows=5) }}
-        </p>
-        <p>
-            {{ form.ml.label }}<br>
-            {{ form.ml(size=64) }}
-        </p>
-        <p>
-            {{ form.review.label }}<br>
-            {{ form.review(cols=40, rows=5) }}
-        </p>
-        <p>{{ form.submit() }}</p>
+        <div class="mb-3">
+            {{ form.product_name.label(class="form-label") }}
+            {{ form.product_name(class="form-control", size=64) }}
+        </div>
+        <div class="mb-3">
+            {{ form.description.label(class="form-label") }}
+            {{ form.description(class="form-control", cols=40, rows=5) }}
+        </div>
+        <div class="mb-3">
+            {{ form.ml.label(class="form-label") }}
+            {{ form.ml(class="form-control", size=64) }}
+        </div>
+        <div class="mb-3">
+            {{ form.review.label(class="form-label") }}
+            {{ form.review(class="form-control", cols=40, rows=5) }}
+        </div>
+        <button type="submit" class="btn btn-primary">{{ form.submit.label.text }}</button>
     </form>
 {% endblock %}

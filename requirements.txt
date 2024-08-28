@@ -5,6 +5,7 @@ email_validator
 Flask==2.2.5
 Flask-SQLAlchemy==2.5.1
 Flask-Login==0.6.2
+Flask-Migrate==4.0.7
 greenlet==3.0.3
 itsdangerous==2.2.0
 psycopg2==2.9.9
