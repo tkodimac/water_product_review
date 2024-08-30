@@ -1,12 +1,11 @@
 import os
 from app import create_app, db
-from app import main as main_blueprint
 
 #from app import app  # Make sure this imports your Flask app correctly
 
 
 app = create_app()
-app.register_blueprint(main_blueprint)
+
 
 #with app.app_context():
 #    db.create_all()  # This creates the tables if they do not exist
