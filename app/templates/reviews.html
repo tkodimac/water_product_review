@@ -12,10 +12,10 @@
             <p>{{ review.ml }} ml</p>
             <p>{{ review.review }}</p>
             <form action="{{ url_for('main.delete_review', review_id=review.id) }}" method="POST">
-                {{ form.hidden_tag() }}
+                {{ csrf_token() }} <!-- Add this if using Flask-WTF for CSRF protection -->
                 <button type="submit" class="btn btn-danger">Delete</button>
             </form>
-        </li>  
+        </li>
         {% endfor %}
     </ul>
 
