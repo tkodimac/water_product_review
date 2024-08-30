@@ -1,6 +1,6 @@
 import os
 from app import create_app, db
-from app.main import main as main_blueprint
+from app import main as main_blueprint
 
 #from app import app  # Make sure this imports your Flask app correctly
 
