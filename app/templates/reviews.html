@@ -11,7 +11,11 @@
             <p>{{ review.description }}</p>
             <p>{{ review.ml }} ml</p>
             <p>{{ review.review }}</p>
-        </li>
+            <form action="{{ url_for('main.delete_review', review_id=review.id) }}" method="POST">
+                {{ form.hidden_tag() }}
+                <button type="submit" class="btn btn-danger">Delete</button>
+            </form>
+        </li>  
         {% endfor %}
     </ul>
 
