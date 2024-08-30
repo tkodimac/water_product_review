@@ -150,3 +150,8 @@ def reviews():
     return render_template(
         'reviews.html', title='Your Reviews', reviews=reviews
     )
+
+@main.route("/about")
+def about():
+    """Render the About Us page."""
+    return render_template('about.html', title='About Us')
