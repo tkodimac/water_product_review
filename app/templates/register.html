@@ -2,7 +2,7 @@
 {% block content %}
     <section>
         <h2>Create an Account</h2>
-        <form action="{{ url_for('register') }}" method="POST">
+        <form action="{{ url_for('main.register') }}" method="POST">
             <label for="username">Username</label>
             <input type="text" id="username" name="username" required>
             <label for="email">Email</label>
