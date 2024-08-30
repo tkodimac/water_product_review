@@ -1,15 +1,29 @@
 {% extends "layout.html" %}
+
+{% block title %}Register{% endblock %}
+
 {% block content %}
     <section>
-        <h2>Create an Account</h2>
+        <h1>Register</h1>
         <form action="{{ url_for('main.register') }}" method="POST">
-            <label for="username">Username</label>
-            <input type="text" id="username" name="username" required>
-            <label for="email">Email</label>
-            <input type="email" id="email" name="email" required>
-            <label for="password">Password</label>
-            <input type="password" id="password" name="password" required>
-            <button class="btn btn-icon"><i class="fas fa-user-plus"></i> Register</button>
+            {{ form.hidden_tag() }}
+            <p>
+                {{ form.username.label }}<br>
+                {{ form.username(size=32) }}
+            </p>
+            <p>
+                {{ form.email.label }}<br>
+                {{ form.email(size=64) }}
+            </p>
+            <p>
+                {{ form.password.label }}<br>
+                {{ form.password(size=64) }}
+            </p>
+            <p>
+                {{ form.confirm_password.label }}<br>
+                {{ form.confirm_password(size=64) }}
+            </p>
+            <p>{{ form.submit(class="btn btn-icon") }}<i class="fas fa-user-plus"></i> Register</p>
         </form>
     </section>
 {% endblock %}

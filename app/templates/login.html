@@ -1,13 +1,22 @@
 {% extends "layout.html" %}
+
+{% block title %}Login{% endblock %}
+
 {% block content %}
     <section>
-        <h2>Login to Your Account</h2>
+        <h1>Login</h1>
         <form action="{{ url_for('main.login') }}" method="POST">
-            <label for="username">Username</label>
-            <input type="text" id="username" name="username" required>
-            <label for="password">Password</label>
-            <input type="password" id="password" name="password" required>
-            <button class="btn btn-icon"><i class="fas fa-sign-in-alt"></i> Login</button>
+            {{ form.hidden_tag() }}
+            <p>
+                {{ form.username.label }}<br>
+                {{ form.username(size=64) }}
+            </p>
+            <p>
+                {{ form.password.label }}<br>
+                {{ form.password(size=64) }}
+            </p>
+            <p>{{ form.submit(class="btn btn-icon") }}<i class="fas fa-sign-in-alt"></i> Login</p>
         </form>
     </section>
 {% endblock %}
+

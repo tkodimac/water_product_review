@@ -1,13 +1,42 @@
 {% extends "layout.html" %}
+
+{% block title %}Submit Review{% endblock %}
+
 {% block content %}
+    <h1>Submit a Water Product Review</h1>
     <section>
-        <h2>Submit a Review</h2>
         <form action="{{ url_for('main.submit_review') }}" method="POST">
-            <label for="title">Title</label>
-            <input type="text" id="title" name="title" required>
-            <label for="content">Content</label>
-            <textarea id="content" name="content" required></textarea>
-            <button class="btn btn-icon"><i class="fas fa-paper-plane"></i> Submit Review</button>
+            <!-- Flask-WTF Hidden Tag for CSRF Protection -->
+            {{ form.hidden_tag() }}
+            
+            <!-- Product Name Field -->
+            <p>
+                <label for="product_name">{{ form.product_name.label }}</label><br>
+                {{ form.product_name(size=64) }}
+            </p>
+            
+            <!-- Description Field -->
+            <p>
+                <label for="description">{{ form.description.label }}</label><br>
+                {{ form.description(cols=40, rows=5) }}
+            </p>
+            
+            <!-- Volume (ml) Field -->
+            <p>
+                <label for="ml">{{ form.ml.label }}</label><br>
+                {{ form.ml(size=64) }}
+            </p>
+            
+            <!-- Review Content Field -->
+            <p>
+                <label for="content">{{ form.review.label }}</label><br>
+                {{ form.review(cols=40, rows=5) }}
+            </p>
+            
+            <!-- Submit Button -->
+            <p>
+                <button class="btn btn-icon"><i class="fas fa-paper-plane"></i> Submit Review</button>
+            </p>
         </form>
     </section>
 {% endblock %}

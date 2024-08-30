@@ -1,8 +1,67 @@
-{% extends "layout.html" %}
-{% block content %}
-    <section>
-        <h1>Welcome to Water Product Review</h1>
-        <p class="secondary-text">Your go-to place for honest water product reviews.</p>
-        <button class="btn btn-icon"><i class="fas fa-home"></i> Explore Reviews</button>
-    </section>
-{% endblock %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    
+    <!-- Link to custom CSS file -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+
+    <!-- Dynamic Title Block -->
+    <title>{% block title %}{{ title }} - Water Product Review{% endblock %}</title>
+</head>
+<body>
+    <header>
+        <nav>
+            <ul>
+                <li><a href="{{ url_for('main.home') }}">Home</a></li>
+                {% if current_user.is_authenticated %}
+                    <li><a href="{{ url_for('main.submit_review') }}">Submit Review</a></li>
+                    <li><a href="{{ url_for('main.reviews') }}">Your Reviews</a></li>
+                    <li><a href="{{ url_for('main.logout') }}">Logout</a></li>
+                {% else %}
+                    <li><a href="{{ url_for('main.login') }}">Login</a></li>
+                    <li><a href="{{ url_for('main.register') }}">Register</a></li>
+                {% endif %}
+            </ul>
+        </nav>
+    </header>
+    
+    <div class="container">
+        <!-- Flash Messages Block -->
+        {% with messages = get_flashed_messages(with_categories=true) %}
+            {% if messages %}
+                {% for category, message in messages %}
+                    <div class="alert alert-{{ category }}">{{ message }}</div>
+                {% endfor %}
+            {% endif %}
+        {% endwith %}
+        
+        <!-- Content Block -->
+        {% block content %}
+        <h1>Water Product Reviews</h1>
+        <ul>
+            {% for review in reviews %}
+            <li>
+                <h2>{{ review.product_name }}</h2>
+                <p>{{ review.description }}</p>
+                <p>{{ review.ml }} ml</p>
+                <p>{{ review.review }}</p>
+                <p>Reviewed by: {{ review.author.username }}</p>
+            </li>
+            {% endfor %}
+        </ul>
+        {% endblock %}
+    </div>
+    
+    <footer>
+        <p>&copy; 2024 Water Product Review. All Rights Reserved.</p>
+    </footer>
+</body>
+</html>

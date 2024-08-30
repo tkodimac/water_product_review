@@ -1,12 +1,29 @@
 {% extends "layout.html" %}
+
+{% block title %}Your Reviews{% endblock %}
+
 {% block content %}
+    <h1>Your Reviews</h1>
+    <ul>
+        {% for review in reviews %}
+        <li>
+            <h2>{{ review.product_name }}</h2>
+            <p>{{ review.description }}</p>
+            <p>{{ review.ml }} ml</p>
+            <p>{{ review.review }}</p>
+        </li>
+        {% endfor %}
+    </ul>
+
     <section>
-        <h2>Reviews</h2>
+        <h2>Manage Your Reviews</h2>
+        {% for review in reviews %}
         <div class="review">
-            <h3>Review Title</h3>
-            <p class="secondary-text">Review content goes here...</p>
-            <a href="#" class="btn btn-icon"><i class="fas fa-edit"></i> Edit Review</a>
-            <a href="#" class="btn btn-icon"><i class="fas fa-trash-alt"></i> Delete Review</a>
+            <h3>{{ review.product_name }}</h3>
+            <p class="secondary-text">{{ review.review }}</p>
+            <a href="{{ url_for('main.edit_review', review_id=review.id) }}" class="btn btn-icon"><i class="fas fa-edit"></i> Edit Review</a>
+            <a href="{{ url_for('main.delete_review', review_id=review.id) }}" class="btn btn-icon"><i class="fas fa-trash-alt"></i> Delete Review</a>
         </div>
+        {% endfor %}
     </section>
 {% endblock %}

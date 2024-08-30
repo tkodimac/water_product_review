@@ -13,24 +13,39 @@
     <!-- Link to custom CSS file -->
     <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
 
-    <title>{{ title }} - Water Product Review</title>
+    <!-- Dynamic Title Block -->
+    <title>{% block title %}{{ title }} - Water Product Review{% endblock %}</title>
 </head>
 <body>
     <header>
         <nav>
             <ul>
                 <li><a href="{{ url_for('main.home') }}">Home</a></li>
-                <li><a href="{{ url_for('main.reviews') }}">Reviews</a></li>
-                <li><a href="{{ url_for('main.submit_review') }}">Submit Review</a></li>
-                <li><a href="{{ url_for('main.login') }}">Login</a></li>
-                <li><a href="{{ url_for('main.register') }}">Register</a></li>
+                {% if current_user.is_authenticated %}
+                    <li><a href="{{ url_for('main.submit_review') }}">Submit Review</a></li>
+                    <li><a href="{{ url_for('main.reviews') }}">Your Reviews</a></li>
+                    <li><a href="{{ url_for('main.logout') }}">Logout</a></li>
+                {% else %}
+                    <li><a href="{{ url_for('main.login') }}">Login</a></li>
+                    <li><a href="{{ url_for('main.register') }}">Register</a></li>
+                {% endif %}
             </ul>
         </nav>
     </header>
     
-    <main>
+    <div class="container">
+        <!-- Flash Messages Block -->
+        {% with messages = get_flashed_messages(with_categories=true) %}
+            {% if messages %}
+                {% for category, message in messages %}
+                    <div class="alert alert-{{ category }}">{{ message }}</div>
+                {% endfor %}
+            {% endif %}
+        {% endwith %}
+        
+        <!-- Content Block -->
         {% block content %}{% endblock %}
-    </main>
+    </div>
     
     <footer>
         <p>&copy; 2024 Water Product Review. All Rights Reserved.</p>
