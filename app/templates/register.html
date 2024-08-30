@@ -1,27 +1,15 @@
 {% extends "layout.html" %}
-
-{% block title %}Register{% endblock %}
-
 {% block content %}
-    <h1 class="mb-4">Register</h1>
-    <form method="POST" class="mb-3">
-        {{ form.hidden_tag() }}
-        <div class="mb-3">
-            {{ form.username.label(class="form-label") }}
-            {{ form.username(class="form-control", size=32) }}
-        </div>
-        <div class="mb-3">
-            {{ form.email.label(class="form-label") }}
-            {{ form.email(class="form-control", size=64) }}
-        </div>
-        <div class="mb-3">
-            {{ form.password.label(class="form-label") }}
-            {{ form.password(class="form-control", size=64) }}
-        </div>
-        <div class="mb-3">
-            {{ form.confirm_password.label(class="form-label") }}
-            {{ form.confirm_password(class="form-control", size=64) }}
-        </div>
-        <button type="submit" class="btn btn-primary">{{ form.submit.label.text }}</button>
-    </form>
+    <section>
+        <h2>Create an Account</h2>
+        <form action="{{ url_for('register') }}" method="POST">
+            <label for="username">Username</label>
+            <input type="text" id="username" name="username" required>
+            <label for="email">Email</label>
+            <input type="email" id="email" name="email" required>
+            <label for="password">Password</label>
+            <input type="password" id="password" name="password" required>
+            <button class="btn btn-icon"><i class="fas fa-user-plus"></i> Register</button>
+        </form>
+    </section>
 {% endblock %}

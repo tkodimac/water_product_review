@@ -1,22 +1,8 @@
 {% extends "layout.html" %}
-
-{% block title %}Home{% endblock %}
-
 {% block content %}
-    <h1 class="mb-4">Water Product Reviews</h1>
-    <div class="row">
-        {% for review in reviews %}
-        <div class="col-md-4 mb-4">
-            <div class="card h-100">
-                <div class="card-body">
-                    <h5 class="card-title">{{ review.product_name }}</h5>
-                    <h6 class="card-subtitle mb-2 text-muted">{{ review.ml }} ml</h6>
-                    <p class="card-text">{{ review.description }}</p>
-                    <p class="card-text">{{ review.review }}</p>
-                    <p class="card-footer text-muted">Reviewed by: {{ review.author.username }}</p>
-                </div>
-            </div>
-        </div>
-        {% endfor %}
-    </div>
+    <section>
+        <h1>Welcome to Water Product Review</h1>
+        <p class="secondary-text">Your go-to place for honest water product reviews.</p>
+        <button class="btn btn-icon"><i class="fas fa-home"></i> Explore Reviews</button>
+    </section>
 {% endblock %}

@@ -1,39 +1,13 @@
 {% extends "layout.html" %}
-
-{% block title %}
-    {% if review %}
-        Edit Review
-    {% else %}
-        Submit Review
-    {% endif %}
-{% endblock %}
-
 {% block content %}
-    <h1 class="mb-4">
-        {% if review %}
-            Edit Your Water Product Review
-        {% else %}
-            Submit a Water Product Review
-        {% endif %}
-    </h1>
-    <form method="POST" class="mb-3">
-        {{ form.hidden_tag() }}
-        <div class="mb-3">
-            {{ form.product_name.label(class="form-label") }}
-            {{ form.product_name(class="form-control", size=64) }}
-        </div>
-        <div class="mb-3">
-            {{ form.description.label(class="form-label") }}
-            {{ form.description(class="form-control", cols=40, rows=5) }}
-        </div>
-        <div class="mb-3">
-            {{ form.ml.label(class="form-label") }}
-            {{ form.ml(class="form-control", size=64) }}
-        </div>
-        <div class="mb-3">
-            {{ form.review.label(class="form-label") }}
-            {{ form.review(class="form-control", cols=40, rows=5) }}
-        </div>
-        <button type="submit" class="btn btn-primary">{{ form.submit.label.text }}</button>
-    </form>
+    <section>
+        <h2>Submit a Review</h2>
+        <form action="{{ url_for('submit_review') }}" method="POST">
+            <label for="title">Title</label>
+            <input type="text" id="title" name="title" required>
+            <label for="content">Content</label>
+            <textarea id="content" name="content" required></textarea>
+            <button class="btn btn-icon"><i class="fas fa-paper-plane"></i> Submit Review</button>
+        </form>
+    </section>
 {% endblock %}
