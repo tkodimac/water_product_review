@@ -10,12 +10,6 @@ cloudinary_python.txt
 __pycache__/
 *.pyc
 instance/
-.env
-*.env
-.env.*
-venv/
-.venv/
-.env
 *.sqlite3
 *.log
 *.pot
