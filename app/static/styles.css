@@ -67,7 +67,6 @@ nav {
     background-color: var(--primary-color);
     padding: 10px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Slight shadow for depth */
-    flex: 1; /* Ensures the container takes up available space */
 }
 
 nav ul {
