@@ -1,5 +1,6 @@
 from flask import (
-    render_template, url_for, flash, redirect, Blueprint, request, abort
+    render_template, url_for, flash, redirect, 
+    Blueprint, request, abort
     )
 from app.forms import RegistrationForm, LoginForm, ReviewForm
 from app.models import User, WaterProductReview
