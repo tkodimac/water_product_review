@@ -9,16 +9,28 @@
             <!-- Flask-WTF Hidden Tag for CSRF Protection -->
             {{ form.hidden_tag() }}
             
-            <!-- Title Field -->
+            <!-- Product Name Field -->
             <p>
-                <label for="title">{{ form.title.label }}</label><br>
-                {{ form.title(size=64, value=review.title) }}
+                <label for="product_name">{{ form.product_name.label }}</label><br>
+                {{ form.product_name(size=64, value=review.product_name) }}
             </p>
-            
+
+            <!-- Description Field -->
+            <p>
+                <label for="description">{{ form.description.label }}</label><br>
+                {{ form.description(cols=40, rows=5, value=review.description) }}
+            </p>
+
+            <!-- ML Field -->
+            <p>
+                <label for="ml">{{ form.ml.label }}</label><br>
+                {{ form.ml(size=64, value=review.ml) }}
+            </p>
+
             <!-- Review Content Field -->
             <p>
-                <label for="content">{{ form.content.label }}</label><br>
-                {{ form.content(cols=40, rows=5, value=review.content) }}
+                <label for="review">{{ form.review.label }}</label><br>
+                {{ form.review(cols=40, rows=5, value=review.review) }}
             </p>
             
             <!-- Submit Button -->
