@@ -19,6 +19,11 @@
 <body>
     <header>
         <nav>
+            <div class="hamburger" onclick="toggleMenu()">
+                <div></div>
+                <div></div>
+                <div></div>
+            </div>
             <ul>
                 <li><a href="{{ url_for('main.home') }}">Home</a></li>
                 <li><a href="{{ url_for('main.about') }}">About Us</a></li>
@@ -51,5 +56,13 @@
     <footer>
         <p>&copy; 2024 Water Product Review. All Rights Reserved.</p>
     </footer>
+
+    <!-- JavaScript for hamburger menu -->
+    <script>
+        function toggleMenu() {
+            const nav = document.querySelector('nav ul');
+            nav.classList.toggle('active');
+        }
+    </script>
 </body>
 </html>
