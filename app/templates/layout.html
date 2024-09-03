@@ -19,7 +19,7 @@
 <body>
     <header>
         <nav>
-            <div class="hamburger" onclick="toggleMenu()">
+            <div class="hamburger">
                 <div></div>
                 <div></div>
                 <div></div>
@@ -58,11 +58,6 @@
     </footer>
 
     <!-- JavaScript for hamburger menu -->
-    <script>
-        function toggleMenu() {
-            const nav = document.querySelector('nav ul');
-            nav.classList.toggle('active');
-        }
-    </script>
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
 </body>
 </html>

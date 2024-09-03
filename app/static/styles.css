@@ -1,13 +1,14 @@
 /* Base colors */
 :root {
-    --primary-color: #3498db; /* Modern blue shade */
+    --primary-color: #2874a6; /* Darker blue shade for better contrast */
     --secondary-color: #2c3e50; /* Darker shade for contrast */
     --background-color: #ecf0f1; /* Light grey background */
     --text-color: #2c3e50; /* Dark text color */
-    --button-background: #e74c3c; /* Bright red for buttons */
+    --button-background: #c0392b; /* Slightly darker red for buttons */
     --button-text-color: #FFFFFF; /* White text on buttons */
-    --hover-color: #2980b9; /* Hover state color */
+    --hover-color: #21618c; /* Darker hover state color */
 }
+
 
 /* Basic Reset */
 * {
@@ -69,21 +70,23 @@ h1, h2, h3, h4, h5, h6 {
     margin-right: 8px;
 }
 
+
 /* Navigation styles */
 nav {
     background-color: var(--primary-color);
     padding: 10px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Slight shadow for depth */
-    position: relative; /* Ensure nav stays within its container */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    position: relative;
 }
 
-/* Hamburger menu styling */
+
 .hamburger {
-    display: none; /* Hidden by default */
+    display: none;
     flex-direction: column;
     cursor: pointer;
     padding: 10px;
 }
+
 
 .hamburger div {
     background-color: white;
@@ -92,7 +95,7 @@ nav {
     margin: 5px 0;
 }
 
-/* Navigation list styles */
+
 nav ul {
     list-style: none;
     margin: 0;
@@ -102,18 +105,15 @@ nav ul {
     flex-wrap: wrap;
 }
 
-nav ul li {
-    margin: 5px 0;
-}
 
 nav ul li a {
     color: white;
     text-decoration: none;
     padding: 8px 15px;
     display: block;
-    transition: background-color 0.3s ease;
     border-radius: 5px;
 }
+
 
 nav ul li a:hover {
     background-color: var(--hover-color);
@@ -191,6 +191,17 @@ footer {
     }
 }
 
+
+/* Responsive Navigation */
+@media (max-width: 768px) {
+    nav ul {
+        flex-direction: column;
+        align-items: flex-start;
+        display: none;
+        width: 100%;
+        background-color: var(--primary-color);
+    }
+
 @media (max-width: 480px) {
     nav ul li a {
         padding: 10px 20px;
@@ -199,4 +210,5 @@ footer {
     .container {
         padding: 10px;
     }
+}
 }
