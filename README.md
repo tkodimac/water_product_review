@@ -10,11 +10,10 @@ Water Product Review is a comprehensive web platform where users can discover, r
 
 ### Flow
 
-Users start their journey on the homepage, where they are greeted with an overview of the platform and featured products. The site encourages users to sign up or log in to access personalized features like submitting reviews, saving favorite products, and interacting with other community members.
+Users start their journey on the homepage, where they are greeted with an overview of the platform and featured product reviews. The site encourages users to sign up or log in to access personalized features like submitting reviews, saving favorite products, and interacting with other community members.
 
 The **About** page, accessible from the main navigation, provides detailed information about the platform’s purpose, highlighting the importance of informed choices when it comes to water-related products. This page serves to educate users on how the platform can help them make better purchasing decisions.
 
-A 'Product Catalog' page allows users to browse all available products, filtered by categories such as purifiers, filters, bottled water, and containers. Logged-in users can add new products, write reviews, and rate products. This page also offers advanced search and sorting options, enabling users to find products that meet specific criteria.
 
 Users who are not logged in can still browse the site, but they are prompted to register or log in when they try to submit a review or rate a product. Upon logging in, users are directed to their personal dashboard, where they can manage their reviews, update reviews, and view a list of their favorite product reviews.
 
@@ -24,7 +23,7 @@ The color scheme reflects the theme of water, using shades of blue and green to 
 
 The color palette was generated using [coolors.co](https://coolors.co).
 
-![Color Palette](documentation/colours.png)
+
 
 ### Typography
 
@@ -60,87 +59,6 @@ The color palette was generated using [coolors.co](https://coolors.co).
 
 Wireframes were created for different device sizes using [Figma](https://www.figma.com/). The design evolved during the development process, with some features adjusted for better usability.
 
-### Desktop Wireframes
-
-<details>
-<summary>Desktop Wireframes</summary>
-
-- Home
-
-  ![Desktop Home](documentation/wireframes/desktop-home.png)
-
-- Product Catalog
-
-  ![Desktop Catalog](documentation/wireframes/desktop-catalog.png)
-
-- Product Detail
-
-  ![Desktop Detail](documentation/wireframes/desktop-detail.png)
-
-- User Dashboard
-
-  ![Desktop Dashboard](documentation/wireframes/desktop-dashboard.png)
-
-- **About Page**
-
-  ![Desktop About](documentation/wireframes/desktop-about.png)
-
-</details>
-
-### Tablet Wireframes
-
-<details>
-<summary>Tablet Wireframes</summary>
-
-- Home
-
-  ![Tablet Home](documentation/wireframes/tablet-home.png)
-
-- Product Catalog
-
-  ![Tablet Catalog](documentation/wireframes/tablet-catalog.png)
-
-- Product Detail
-
-  ![Tablet Detail](documentation/wireframes/tablet-detail.png)
-
-- User Dashboard
-
-  ![Tablet Dashboard](documentation/wireframes/tablet-dashboard.png)
-
-- **About Page**
-
-  ![Tablet About](documentation/wireframes/tablet-about.png)
-
-</details>
-
-### Mobile Wireframes
-
-<details>
-<summary>Mobile Wireframes</summary>
-
-- Home
-
-  ![Mobile Home](documentation/wireframes/mobile-home.png)
-
-- Product Catalog
-
-  ![Mobile Catalog](documentation/wireframes/mobile-catalog.png)
-
-- Product Detail
-
-  ![Mobile Detail](documentation/wireframes/mobile-detail.png)
-
-- User Dashboard
-
-  ![Mobile Dashboard](documentation/wireframes/mobile-dashboard.png)
-
-- **About Page**
-
-  ![Mobile About](documentation/wireframes/mobile-about.png)
-
-</details>
-
 ## Features
 
 ### Existing Features
@@ -149,62 +67,23 @@ Wireframes were created for different device sizes using [Figma](https://www.fig
 
   The navbar is designed to provide easy access to all major sections of the site, with links displayed based on the user's login status. The responsive design ensures that the navbar adapts seamlessly across desktop, tablet, and mobile devices.
 
-  <details>
-  <summary>Navbar Screenshots</summary>
-
-  - Desktop
-
-    ![Desktop Navbar](documentation/features/Navbar/desktop-nav.png)
-
-  - Tablet
-
-    ![Tablet Navbar](documentation/features/Navbar/tablet-nav.png)
-
-  - Mobile
-
-    ![Mobile Navbar](documentation/features/Navbar/mobile-nav.png)
-
-  </details>
 
 - **Homepage**
 
   The homepage serves as the introduction to the platform, featuring a welcoming design with a brief overview of the site’s purpose and links to key sections like the product catalog and user reviews.
 
-  <details>
-  <summary>Page Screenshots (responsive design)</summary>
-
-  - Desktop
-
-    ![Desktop Home](documentation/features/pages/home-desktop.png)
-
-  - Tablet
-
-    ![Tablet Home](documentation/features/pages/home-tablet.png)
-
-  - Mobile
-
-    ![Mobile Home](documentation/features/pages/home-mobile.png)
-
-  </details>
-
-- **Product Catalog**
-
-  The product catalog allows users to explore all available products, with options to filter by category, sort by rating, and search for specific items. Users can click on any product to view detailed information and read reviews.
-
-  ![Product Catalog](documentation/features/pages/catalog.png)
 
 - **User Dashboard**
 
   The user dashboard provides logged-in users with a personalized space where they can manage their reviews, update account settings, and track their favorite products.
 
-  ![User Dashboard](documentation/features/pages/dashboard.png)
+ 
 
 - **About Page**
 
   The About page provides users with an overview of the platform's mission, values, and the community. It helps users understand the purpose behind the Water Product Review platform and encourages them to join the community.
 
-  ![About Page](documentation/features/pages/about.png)
-
+ 
 ## Future Features
 
 - **Advanced Filtering and Sorting**
@@ -224,7 +103,7 @@ Wireframes were created for different device sizes using [Figma](https://www.fig
 - **HTML5** and **CSS3** for structuring and styling the web pages.
 - **JavaScript** for interactive features and dynamic content.
 - **Python (Flask)** for the backend framework.
-- **SQLite** for the database to store user data, reviews, and product information.
+- **ProgreSQL** for the database to store user data, reviews, and product information.
 - **Bootstrap** for responsive design and layout.
 - **jQuery** for DOM manipulation and event handling.
 - **Font Awesome** for icons.
@@ -248,8 +127,8 @@ The site is deployed on [Heroku](https://www.heroku.com/). Instructions for depl
 
 1. Clone the repository.
 2. Install dependencies using `pip install -r requirements.txt`.
-3. Set up the SQLite database by running the migration scripts.
-4. Start the Flask server with `python app.py`.
+3. Set up the ProgreSQL database by running the migration scripts.
+4. Start the Flask server with `python run.py`.
 5. Access the site locally via `http://localhost:5000`.
 
 ## Credits
@@ -260,4 +139,7 @@ The site is deployed on [Heroku](https://www.heroku.com/). Instructions for depl
 
 ## Acknowledgments
 
-Special thanks to the open-source community for providing resources and inspiration for this project. 
+I would like to thank my Code Institute mentor Iuliia Konovalova for her support with the development of the project and for encouraging me to push myself to see what I could achieve with this app.
+I would like to thank the Code Institute for the useful tutorials and guidance provided to help with this project.
+I would like to thank my family for being supportive.
+
