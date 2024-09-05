@@ -113,6 +113,15 @@ Wireframes were created for different device sizes using [Figma](https://www.fig
 
 Extensive testing was conducted to ensure that the site works as intended across different devices and browsers. All interactive elements were tested for functionality, and user feedback was incorporated into final adjustments.
 
+![WAVE](documentation/images/wave test.png)
+![HTML] (documentation/images/Test_1.png)
+![Python linter](documentation/images/routes.png)
+![Python linter](documentation/images/routes_1.png)
+![Python linter](documentation/images/models.png)
+![Python linter](documentation/images/init.png)
+![Python linter](documentation/images/forms.png)
+![Lighthouse test](documentation/images/lighthouse.png)
+
 ### Issues
 
 - **Browser Compatibility**
